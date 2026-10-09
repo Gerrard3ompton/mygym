@@ -1,4 +1,5 @@
 :root {
+  --gutter: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
   color-scheme: dark;
   --bg: #0d0f0d;
   --surface: #151815;
@@ -45,7 +46,7 @@ h1, h2, h3 { font-weight: 700; line-height: 1; letter-spacing: -0.04em; text-wra
 h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-.wrap { width: min(1240px, 100% - 2rem); margin-inline: auto; }
+.wrap { width: min(1800px, 100% - 2 * var(--gutter)); margin-inline: auto; }
 .mono { font-family: var(--mono); font-weight: 500; letter-spacing: -0.02em; }
 .accent { color: var(--accent); }
 .eyebrow {
@@ -80,7 +81,7 @@ h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
   position: sticky;
   top: calc(env(safe-area-inset-top, 0px) + 0.75rem);
   z-index: 20;
-  width: min(1240px, 100% - 1rem);
+  width: min(1800px, 100% - var(--gutter));
   margin: 0.75rem auto 0;
 }
 .bar {
@@ -117,12 +118,12 @@ h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
 .hero-copy { animation: rise 0.9s var(--ease) backwards; }
 .hero-lede { max-width: 34ch; margin-top: 2rem; color: var(--muted); font-size: clamp(1.0625rem, 1.5vw, 1.25rem); line-height: 1.5; }
 .hero h1 {
-  font-size: clamp(4.5rem, 11.5vw, 11rem);
+  font-size: clamp(4.5rem, 12vw, 16rem);
   font-weight: 800;
   line-height: 0.85;
   letter-spacing: -0.06em;
 }
-.hero-visual { position: relative; max-width: 520px; justify-self: end; width: 100%; animation: rise 1.1s var(--ease) 0.15s backwards; }
+.hero-visual { position: relative; max-width: clamp(520px, 38vw, 760px); justify-self: end; width: 100%; animation: rise 1.1s var(--ease) 0.15s backwards; }
 .hero-visual .photo { aspect-ratio: 4 / 5; }
 
 .photo { position: relative; overflow: hidden; border-radius: 1.5rem; --shade: 0.5; --fade: 45%; }
@@ -180,7 +181,7 @@ h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
   position: absolute;
   top: 0;
   left: 50%;
-  width: 760px;
+  width: max(760px, 62vw);
   max-width: none;
   height: 100%;
   transform: translateX(-50%);
